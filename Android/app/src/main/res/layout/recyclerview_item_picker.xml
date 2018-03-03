@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:layout_marginEnd="1dp"
+    android:layout_marginStart="1dp">
+    <RelativeLayout
+        android:id="@+id/item_picker_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/large_padding">
+        <TextView
+            android:id="@+id/item_picker_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Some Item"
+            android:textSize="@dimen/large_text"/>
+        <TextView
+            android:id="@+id/item_picker_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="10"
+            android:textSize="@dimen/large_text"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

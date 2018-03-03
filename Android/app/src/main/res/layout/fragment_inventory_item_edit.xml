@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:fontFamily="sans-serif-medium"/>
+
+    <EditText
+        android:id="@+id/inventory_edit_name_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ENTER NAME HERE"
+        android:singleLine="true"
+        android:maxLength="25"
+        android:imeOptions="actionDone"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:textSize = "24sp"/>
+        <EditText
+            android:id="@+id/inventory_edit_price_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:digits="0123456789."
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:maxLength="8"
+            android:imeOptions="actionDone"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="IMAGE"
+        android:fontFamily="sans-serif-medium"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/inventory_edit_immageview"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/no_image_icon"/>
+        <Button
+            android:id="@+id/inventory_edit_select_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT IMAGE"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="COUNT"
+        android:fontFamily="sans-serif-medium"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/inventory_edit_minus_10_button"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="-10"/>
+
+        <Button
+            android:id="@+id/inventory_edit_minus_1_button"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="-1"/>
+
+        <TextView
+            android:id="@+id/inventory_edit_count_textview"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-medium"/>
+
+        <Button
+            android:id="@+id/inventory_edit_plus_1_button"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="+1"/>
+
+        <Button
+            android:id="@+id/inventory_edit_plus_10_button"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="+10"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/recycler_view_inventory_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#AAAAAA"
+        android:layout_marginTop="20dp">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/recycler_view_inventory_edit_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/inventory_edit_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CANCEL"
+            android:textColor="@color/bs_red"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#AAAAAA"
+            android:layout_marginTop="5dp">
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/inventory_edit_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SAVE"
+            android:textColor="@color/bs_blue"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

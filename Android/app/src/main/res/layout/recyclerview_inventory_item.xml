@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+    android:layout_margin="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+        <ImageView
+            android:id="@+id/recycler_view_inventory_imageview"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/no_image_icon"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/recycler_view_inventory_description_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toEndOf="@+id/recycler_view_inventory_imageview"
+                    android:text="Some Item"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/recycler_view_inventory_price_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toEndOf="@+id/recycler_view_inventory_imageview"
+                    android:text="$20.00"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/recycler_view_inventory_amount_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textSize="30sp"
+            android:layout_alignParentEnd="true"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/recycler_view_inventory_line"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="1dp"
+            android:background="#AAAAAA">
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/recycler_view_inventory_edit_bar"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/recycler_view_inventory_delete_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="DELETE"
+                android:textColor="@color/bs_red"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:textAlignment="center"
+                android:paddingTop="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#AAAAAA"
+                android:layout_marginTop="5dp">
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/recycler_view_inventory_edit_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="EDIT"
+                android:textColor="@color/bs_blue"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:textAlignment="center"
+                android:paddingTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

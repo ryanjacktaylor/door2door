@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Boyscout Colors  -->
+    <color name="black_overlay">#66000000</color>
+    <color name="bs_blue">#003F87</color>
+    <color name="bs_red">#CE1126</color>
+    <color name="bs_green">#006b3F</color>
+    <color name="bs_yellow">#FFCC00</color>
+
+    <color name="selected_dark">#000000</color>
+    <color name="unselected_dark">#CCCCCC</color>
+</resources>
