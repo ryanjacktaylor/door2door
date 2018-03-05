@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
+import com.duckmethod.door2door.Models.Product;
+import com.duckmethod.door2door.R;
 
 import java.util.List;
 

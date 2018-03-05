@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
+import com.duckmethod.door2door.R;
 
 /**
  * Created by Ryan on 11/5/2017.

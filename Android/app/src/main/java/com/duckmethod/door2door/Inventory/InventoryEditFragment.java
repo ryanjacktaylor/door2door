@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.DecimalDigitsInputFilter;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.Utilities;
+import com.duckmethod.door2door.Models.Product;
+import com.duckmethod.door2door.R;
+import com.duckmethod.door2door.Utilities.DecimalDigitsInputFilter;
+import com.duckmethod.door2door.Utilities.Utilities;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;

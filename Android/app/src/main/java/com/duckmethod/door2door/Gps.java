@@ -9,7 +9,6 @@ import android.location.Location;
 public class Gps {
 
     private Location mLocation;
-
     private static Gps sGps;
     private ChangeListener mListener;
 

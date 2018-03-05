@@ -15,10 +15,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Inventory.InventoryFragment;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Sell.SellFragment;
+import com.duckmethod.door2door.Inventory.InventoryFragment;
+import com.duckmethod.door2door.Sell.SellFragment;
 
-import static com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.PermissionUtility.RequestAllPermissions;
+import static com.duckmethod.door2door.Utilities.PermissionUtility.RequestAllPermissions;
 
 public class HomeActivity extends AppCompatActivity {
 

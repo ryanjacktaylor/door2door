@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
+import com.duckmethod.door2door.Models.Product;
+import com.duckmethod.door2door.R;
 
 import java.util.List;
 

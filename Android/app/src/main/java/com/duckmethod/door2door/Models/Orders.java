@@ -1,6 +1,6 @@
 package com.duckmethod.door2door.Models;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.AppDatabase;
+import com.duckmethod.door2door.AppDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
@@ -60,14 +60,13 @@ public class Orders extends BaseModel {
         this.lon = lon;
     }
 
-    /*
     public Date getOrderDate() {
         return orderDate;
     }
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
-    }*/
+    }
 
     public String getTotalPrice() {
         return totalPrice;

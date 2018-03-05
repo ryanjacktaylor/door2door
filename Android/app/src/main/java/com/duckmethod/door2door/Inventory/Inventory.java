@@ -2,7 +2,7 @@ package com.duckmethod.door2door.Inventory;
 
 import android.util.Log;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
+import com.duckmethod.door2door.Models.Product;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.ArrayList;

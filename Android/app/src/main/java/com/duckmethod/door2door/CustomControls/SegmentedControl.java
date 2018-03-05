@@ -12,8 +12,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.DrawUtility;
+import com.duckmethod.door2door.R;
+import com.duckmethod.door2door.Utilities.DrawUtility;
+
 
 /**
  * Created by Ryan on 2/11/2018.

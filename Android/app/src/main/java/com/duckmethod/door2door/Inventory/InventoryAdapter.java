@@ -8,9 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.Utilities;
+import com.duckmethod.door2door.Models.Product;
+import com.duckmethod.door2door.R;
+import com.duckmethod.door2door.Utilities.Utilities;
 
 import java.util.List;
 

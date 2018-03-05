@@ -1,6 +1,6 @@
 package com.duckmethod.door2door.Models;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.AppDatabase;
+import com.duckmethod.door2door.AppDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;

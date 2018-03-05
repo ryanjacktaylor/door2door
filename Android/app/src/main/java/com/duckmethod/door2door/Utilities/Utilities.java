@@ -73,12 +73,16 @@ public class Utilities {
         byte[] imageInByte = stream.toByteArray();
         return imageInByte;
     }
-
+ 
     //Convert Byte array to bitmap
     public static Bitmap convertByteArrayToBitmap(byte[] byteArrayToBeCOnvertedIntoBitMap) {
         Bitmap bitMapImage = BitmapFactory.decodeByteArray(
                 byteArrayToBeCOnvertedIntoBitMap, 0,
                 byteArrayToBeCOnvertedIntoBitMap.length);
         return bitMapImage;
+    }
+
+    public static String doubleToString(double d, int decimals){
+        return String.format("%." + String.valueOf(decimals) + "f", d);
     }
 }

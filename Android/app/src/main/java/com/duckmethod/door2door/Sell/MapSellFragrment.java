@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Gps;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
+import com.duckmethod.door2door.Gps;
+import com.duckmethod.door2door.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +13,19 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.CustomControls.SegmentedControl;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Inventory.Inventory;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.R;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.DrawUtility;
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Utilities.Utilities;
+import com.duckmethod.door2door.CustomControls.SegmentedControl;
+import com.duckmethod.door2door.Gps;
+import com.duckmethod.door2door.Inventory.Inventory;
+import com.duckmethod.door2door.Models.OrderItem;
+import com.duckmethod.door2door.Models.Orders;
+import com.duckmethod.door2door.Models.Product;
+import com.duckmethod.door2door.R;
+import com.duckmethod.door2door.Utilities.DrawUtility;
+import com.duckmethod.door2door.Utilities.Utilities;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -46,7 +52,10 @@ public class SaleFragment extends Fragment {
     private DialogFragment mItemPickerDialog;
 
     //Cart List
-    private List<Product> mCart = new ArrayList<>();
+    private List<OrderItem> mCart = new ArrayList<>();
+
+    //Payment Types
+    String[] mPaymentTypes = {"CASH", "CHECK", "CC"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,6 +80,14 @@ public class SaleFragment extends Fragment {
             }
         });
 
+        //Process sale button
+        mProcessButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                processSale();
+            }
+        });
+
         return v;
     }
 
@@ -89,14 +106,18 @@ public class SaleFragment extends Fragment {
                 //Get the item id
                 if (extras != null){
                     int id = extras.getInt(ItemPickerFragment.BUNDLE_ID);
-                    Product item = Inventory.getInstance().getItembyId(id);
+                    Product product = Inventory.getInstance().getItembyId(id);
+                    OrderItem item = new OrderItem();
+                    item.setQuantity(1);  //Default to 1
+                    item.setPricePerItem(product.getPrice());
+                    item.setLineTotal(Utilities.doubleToString(Utilities.parseDouble(product.getPrice().replace("$", "")) * item.getQuantity(),2));
+                    item.setProduct(product);
 
                     //Add the product to the cart
                     mCart.add(item);
 
                     //Update the list
                     rebuildCart();
-
 
                 }
 
@@ -113,18 +134,18 @@ public class SaleFragment extends Fragment {
         mSaleItemsLayout.removeAllViews();
 
         //Add all views to the cart
-        for (Product product:mCart){
+        for (OrderItem item:mCart){
 
             //Create the Sale Item View, add a margin, and add it to the list
             SaleItemView saleItemView = new SaleItemView(getContext());
-            saleItemView.setItem(product, 1);
+            saleItemView.setItem(item.getProduct(), 1);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             params.setMargins(0,DrawUtility.dpToPx(1),0, 0);
             saleItemView.setLayoutParams(params);
             mSaleItemsLayout.addView(saleItemView);
 
             //Add the price to the total
-            total+= Utilities.parseDouble(product.getPrice());
+            total+= Utilities.parseDouble(item.getLineTotal());
 
         }
 
@@ -132,4 +153,43 @@ public class SaleFragment extends Fragment {
         mSaleTotalTextView.setText(Utilities.formatCurrency(total));
 
     }
+
+    private void processSale(){
+
+        //Create an order
+        Orders order = new Orders();
+        order.setLat((float)Gps.getInstance().getLocation().getLatitude());
+        order.setLon((float)Gps.getInstance().getLocation().getLongitude());
+        try {
+            order.setPaymentType(mPaymentTypes[mPaymentSegmentedControl.getActiveSegment()]);
+        } catch (Exception e){
+            Log.w(TAG, "Could not get the payment type from SegmentedControl, " + e);
+            order.setPaymentType(mPaymentTypes[0]);
+        }
+        order.setTotalPrice(mSaleTotalTextView.getText().toString().replace("$",""));
+        order.setOrderDate(new Date(Calendar.getInstance().getTime().getTime()));
+
+        //Save the order to create an id
+        order.save();
+
+        //Add the items to the database and remove the qty from the inventory
+        for (OrderItem cartItem:mCart){
+
+            //Create an order item
+            cartItem.setOrder(order);
+            cartItem.setQuantityFulfilled(cartItem.getQuantity());  //TODO: Allow for orders
+            cartItem.save();
+
+            //Update the inventory
+            Product product = cartItem.getProduct();
+            product.setCount(product.getCount() - cartItem.getQuantity());
+            product.save();
+        }
+
+        //Clear the cart
+        mCart.clear();
+        rebuildCart();
+
+    }
+
 }

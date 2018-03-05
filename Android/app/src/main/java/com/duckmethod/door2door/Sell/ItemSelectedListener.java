@@ -1,6 +1,6 @@
 package com.duckmethod.door2door.Sell;
 
-import com.boyscoutpopcorn.nbcs.boyscoutpopcorn.Models.Product;
+import com.duckmethod.door2door.Models.Product;
 
 /**
  * Created by Ryan on 2/4/2018.
